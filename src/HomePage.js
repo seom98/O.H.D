@@ -9,11 +9,6 @@ function HomePage() {
     <div>
       <Link to="/login">Login</Link>
       <Link to="/signup">Sign Up</Link>
-
-      <Switch>
-        <Route path="/login" component={LoginPage} />
-        <Route path="/signup" component={SignUpPage} />
-      </Switch>
     </div>
   );
 }
