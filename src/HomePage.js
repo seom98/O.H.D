@@ -1,14 +1,11 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
-
-import LoginPage from "./LoginPage";
-import SignUpPage from "./SignUpPage";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
     <div>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Sign Up</Link>
+      <button><Link to="/login">Login</Link></button>
+      <button><Link to="/signup">Sign Up</Link></button>
     </div>
   );
 }

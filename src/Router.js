@@ -9,8 +9,8 @@ export default function Router() {
     <BrowserRouter>
       <nav>
         <NavLink to='/'>Home</NavLink>
-        <Link to='/login'>Login</Link>
-        <Link to='/SignUp'>SignUp</Link>
+        <Link to='/login'>로그인</Link>
+        <Link to='/SignUp'>회원가입</Link>
       </nav>
 
       <Routes>
