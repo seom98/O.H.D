@@ -4,6 +4,7 @@ import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import HomePage from "./HomePage";
 import RoomPage from "./RoomPage";
+import WritersPage from "./WritersPage";
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
         <Route path='/signUp' element={<SignUpPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/room' element={<RoomPage />} />
+        <Route path='/writers' element={<WritersPage />} />
       </Routes>
     </BrowserRouter>
   );
