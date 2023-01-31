@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, NavLink, /*Link*/ } from "react-router-do
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import HomePage from "./HomePage";
+import RoomPage from "./RoomPage";
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
         <Route exact path='/' element={<HomePage />} />
         <Route path='/signUp' element={<SignUpPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/room' element={<RoomPage />} />
       </Routes>
     </BrowserRouter>
   );
