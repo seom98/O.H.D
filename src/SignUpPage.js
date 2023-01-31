@@ -16,7 +16,7 @@ export default function SignUpPage() {
           <input type="text" id="room" placeholder="방 이름을 입력해주세요." /><br></br>
           <label for="dDay">D-day:</label>
           <input type="date" id="dDay" /><br></br>
-          <button className="submit" type="submit" value="생성하기"><Link to="/room"> 생성하기 </Link></button>
+          <Link to="/room"><button className="submit" type="submit" value="생성하기"> 생성하기 </button></Link>
         </form>
       </div>
     </>

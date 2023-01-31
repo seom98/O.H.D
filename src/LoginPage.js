@@ -12,7 +12,7 @@ export default function LoginPage() {
           <input type="text" id="id" placeholder="아이디를 입력해주세요." /><br></br>
           <label for="pw">비밀번호:</label>
           <input type="password" id="pw" placeholder="비밀번호를 입력해주세요." /><br></br>
-          <button className="submit" type="submit" value="로그인"><Link to="/room"> Login </Link></button>
+          <Link to="/room"><button className="submit" type="submit" value="로그인"> Login </button></Link>
         </form>
       </div>
     </>
