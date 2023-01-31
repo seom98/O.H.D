@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div>
       <button><Link to="/login">Login</Link></button>
-      <button><Link to="/signup">Sign Up</Link></button>
+      <button><Link to="/signUp">SignUp</Link></button>
     </div>
   );
 }
