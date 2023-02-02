@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal = () => {
+const Popup = () => {
   const [step, setStep] = useState(1);
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
@@ -54,4 +54,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default Popup;

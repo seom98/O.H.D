@@ -48,21 +48,31 @@ const Login = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="User ID"
-        value={userId}
-        onChange={(e) => setUserId(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={pw}
-        onChange={(e) => setPw(e.target.value)}
-      />
-      <button className="submit" type="submit" value="로그인"> Login </button>
-    </form>
+    <>
+      <h1>로그인페이지</h1>
+      <div>
+        <h2>Welcome</h2>
+        <form onSubmit={handleSubmit}>
+          <label for="userid">아이디:</label><br />
+          <input
+            type="text"
+            placeholder="User ID"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+          /><br />
+
+          <label for="pw">비밀번호:</label><br />
+          <input
+            type="password"
+            placeholder="Password"
+            value={pw}
+            onChange={(e) => setPw(e.target.value)}
+          /><br />
+
+          <button className="submit" type="submit" value="로그인"> Login </button>
+        </form>
+      </div>
+    </>
   );
 };
 
