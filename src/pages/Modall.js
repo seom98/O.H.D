@@ -7,13 +7,9 @@ const Modal = () => {
   const [from, setFrom] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const handleNext = () => {
-    setStep(2);
-  };
+  const handleNext = () => {setStep(2); };
 
-  const handlePrevious = () => {
-    setStep(1);
-  };
+  const handlePrevious = () => {setStep(1); };
 
   return (
     <div>

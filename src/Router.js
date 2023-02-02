@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, NavLink, Link, /*Link*/ } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
+import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import HomePage from "./pages/HomePage";
 import RoomPage from "./pages/RoomPage";
@@ -19,9 +19,9 @@ export default function Router() {
 
       <Routes>
         <Route exact path='/' element={<HomePage />} />
-        <Route path='/signUp' element={<SignUpPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/room' element={<RoomPage />} />
+        <Route path='/signup' element={<SignUpPage />} />
+        <Route path='/signin' element={<SignInPage />} />
+        <Route path='/rooms' element={<RoomPage />} />
         <Route path='/writers' element={<WritersPage />} />
       </Routes>
     </BrowserRouter>
