@@ -36,7 +36,9 @@ const ColorChooser = () => {
         <div>
             <GiftBoxIcon color = {selectedColor} number = {selectedNumber} />
         </div>
-      ) : null}
+      ) : <div>
+      <GiftBoxIcon color = 'whitee' number = {1} />
+  </div>}
     </div>
   );
 };
