@@ -6,11 +6,10 @@ const Popup = () => {
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
   const [from, setFrom] = useState("");
-  const [birthday, setBirthday] = useState("");
 
-  const handleNext = () => {setStep(2); };
+  const handleNext = () => { setStep(2); };
 
-  const handlePrevious = () => {setStep(1); };
+  const handlePrevious = () => { setStep(1); };
 
   return (
     <div>
@@ -43,12 +42,6 @@ const Popup = () => {
       {step === 2 && (
         <div>
           <ColorChooser />
-          <input
-            type="text"
-            placeholder="Birthday"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
-          />
           <button onClick={handlePrevious}>Previous</button>
         </div>
       )}

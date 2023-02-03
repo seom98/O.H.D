@@ -4,7 +4,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 export default function RoomPage() {
     const url = "http://localhost:3000/writers/"; // url 복사
-       
+
     return (
         <>
             <h1>룸</h1>
