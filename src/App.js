@@ -13,7 +13,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ul>{message.map((v, idx) => <li key={`${idx}-${v}`}>{v}</li>)}</ul>
+        <ul>{message.map((v, idx) =>
+          <li key={ `${idx}-${v}` }>
+            {v}
+          </li>)}
+        </ul>
       </header>
       <Router />
     </div>

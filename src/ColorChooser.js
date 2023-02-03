@@ -18,6 +18,12 @@ const ColorChooser = () => {
 
     return (
         <div>
+            {selectedColor && selectedNumber ? (
+                <div><GiftBoxIcon color={selectedColor} number={selectedNumber} /></div>
+            ) :
+                <div><GiftBoxIcon color='whitee' number={1} /></div>
+            }
+
             <div>
                 {colors.map(color => (
                     <button key={color} onClick={() => handleColorClick(color)}>
@@ -25,6 +31,7 @@ const ColorChooser = () => {
                     </button>
                 ))}
             </div>
+
             <div>
                 {numbers.map(number => (
                     <button key={number} onClick={() => handleNumberClick(number)}>
@@ -32,10 +39,7 @@ const ColorChooser = () => {
                     </button>
                 ))}
             </div>
-            {selectedColor && selectedNumber ? (
-                <div><GiftBoxIcon color={selectedColor} number={selectedNumber} /></div>
-            ) :
-                <div><GiftBoxIcon color='whitee' number={1} /></div>}
+            
         </div>
     );
 };

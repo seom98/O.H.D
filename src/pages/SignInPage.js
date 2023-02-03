@@ -29,10 +29,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // POST request to your API endpoint
     const response = await fetch("/api/signin", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type" : "application/json" },
       body: JSON.stringify({ userId, pw }),
     });
 
@@ -56,7 +55,7 @@ const Login = () => {
           <label for="userid">아이디:</label><br />
           <input
             type="text"
-            placeholder="User ID"
+            placeholder="아이디를 입력해주세요"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
           /><br />
@@ -64,12 +63,12 @@ const Login = () => {
           <label for="pw">비밀번호:</label><br />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="비밀번호를 입력해주세요"
             value={pw}
             onChange={(e) => setPw(e.target.value)}
           /><br />
 
-          <button className="submit" type="submit" value="로그인"> Login </button>
+          <button className="submit" type="submit" value="로그인"> 로그인 </button>
         </form>
       </div>
     </>
