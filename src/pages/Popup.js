@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ColorChooser from "../ColorChooser";
 
 const Popup = () => {
   const [step, setStep] = useState(1);
@@ -41,6 +42,7 @@ const Popup = () => {
       )}
       {step === 2 && (
         <div>
+          <ColorChooser />
           <input
             type="text"
             placeholder="Birthday"

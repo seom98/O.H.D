@@ -18,17 +18,17 @@ import GiftBox_4_4 from './assets/GiftBox_4_4.png';
 
 
 const GIFT_IMAGES = {
-    white: [GiftBox_0_0],
-    r: [GiftBox_1_1, GiftBox_1_2, GiftBox_1_3, GiftBox_1_4],
-    g: [GiftBox_2_1, GiftBox_2_2, GiftBox_2_3, GiftBox_2_4],
-    b: [GiftBox_3_1, GiftBox_3_2, GiftBox_3_3, GiftBox_3_4],
-    w: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
+    whitee: [GiftBox_0_0],
+    red: [GiftBox_1_1, GiftBox_1_2, GiftBox_1_3, GiftBox_1_4],
+    green: [GiftBox_2_1, GiftBox_2_2, GiftBox_2_3, GiftBox_2_4],
+    blue: [GiftBox_3_1, GiftBox_3_2, GiftBox_3_3, GiftBox_3_4],
+    white: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
 };
 
-function Gift({ color = 'white', num = 1 }) {
-  const src = GIFT_IMAGES[color][num - 1];
-  const alt = `${color} ${num}`;
+function GiftBoxIcon({ color = 'whitee', number = 1 }) {
+  const src = GIFT_IMAGES[color][number - 1];
+  const alt = `${color} ${number}`;
   return <img src={src} alt={alt} />;
 }
 
-export default Gift;
+export default GiftBoxIcon;
