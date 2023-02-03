@@ -22,7 +22,7 @@ import React, { useState } from "react";
 
 
 const Login = () => {
-  const [userid, setUserid] = useState("");
+  const [userId, setUserId] = useState("");
   const [pw, setPw] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -32,7 +32,7 @@ const Login = () => {
     const response = await fetch("/api/signin", {
       method: "POST",
       headers: { "Content-Type" : "application/json" },
-      body: JSON.stringify({ userid, pw }),
+      body: JSON.stringify({ userid: userId, pw }),
     });
 
     const data = await response.json();
@@ -55,16 +55,16 @@ const Login = () => {
           <label for="userid">아이디:</label><br />
           <input
             type="text"
-            name="userid"
+            id="userid"
             placeholder="아이디를 입력해주세요"
-            value={userid}
-            onChange={(e) => setUserid(e.target.value)}
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
           /><br />
 
           <label for="pw">비밀번호:</label><br />
           <input
             type="password"
-            name="pw"
+            id="pw"
             placeholder="비밀번호를 입력해주세요"
             value={pw}
             onChange={(e) => setPw(e.target.value)}
