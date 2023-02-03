@@ -8,7 +8,7 @@ function App() {
     fetch("/hello")
       .then((res) => { return res.json(); })
       .then((data) => { setMessage(data); });
-  }, []);
+  }, []);  
 
   return (
     <div className="App">
