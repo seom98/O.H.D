@@ -52,10 +52,10 @@ const Login = () => {
       <div>
         <h2>Welcome</h2>
         <form onSubmit={handleSubmit}>
-          <label for="userid">아이디:</label><br />
+          <label for="userId">아이디:</label><br />
           <input
             type="text"
-            id="userid"
+            name="userId"
             placeholder="아이디를 입력해주세요"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
@@ -64,7 +64,7 @@ const Login = () => {
           <label for="pw">비밀번호:</label><br />
           <input
             type="password"
-            id="pw"
+            name="pw"
             placeholder="비밀번호를 입력해주세요"
             value={pw}
             onChange={(e) => setPw(e.target.value)}
