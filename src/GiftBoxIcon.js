@@ -25,10 +25,16 @@ const GIFT_IMAGES = {
   white: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
 };
 
+const style = {
+  borderRadius: '50%',
+  width: '120px',
+  height: '120px',
+};
+
 function GiftBoxIcon({ color = 'whitee', number = 1 }) {
   const src = GIFT_IMAGES[color][number - 1];
   const alt = `${color} ${number}`;
-  return <img src={src} alt={alt} />;
+  return <img src={src} alt={alt} style={style}/>;
 }
 
 export default GiftBoxIcon;
