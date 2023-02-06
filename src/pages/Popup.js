@@ -36,13 +36,14 @@ const Popup = () => {
             value={from}
             onChange={(e) => setFrom(e.target.value)}
           /><br />
-          <button onClick={handleNext}>Next</button>
+          <button onClick={handleNext}>다음</button>
         </div>
       )}
       {step === 2 && (
         <div>
           <ColorChooser />
-          <button onClick={handlePrevious}>Previous</button>
+          <button onClick={handlePrevious}>이전</button>
+          <button>완료</button>
         </div>
       )}
     </div>

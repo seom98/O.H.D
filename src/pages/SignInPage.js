@@ -52,7 +52,7 @@ const Login = () => {
       <div>
         <h2>Welcome</h2>
         <form onSubmit={handleSubmit}>
-          <label for="userId">아이디:</label><br />
+          <label htmlFor="userId">아이디:</label><br />
           <input
             type="text"
             name="userId"
@@ -61,7 +61,7 @@ const Login = () => {
             onChange={(e) => setUserId(e.target.value)}
           /><br />
 
-          <label for="pw">비밀번호:</label><br />
+          <label htmlFor="pw">비밀번호:</label><br />
           <input
             type="password"
             name="pw"

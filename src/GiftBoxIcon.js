@@ -26,7 +26,6 @@ const GIFT_IMAGES = {
 };
 
 const style = {
-  borderRadius: '50%',
   width: '120px',
   height: '120px',
 };
