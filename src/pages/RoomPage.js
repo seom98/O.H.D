@@ -1,8 +1,10 @@
 import React from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import {useParams} from "react-router";
 
 
 export default function RoomPage() {
+    let {uuidId} = useParams();
     const url = `http://localhost:3000/writers/`; // url 복사
 
     return (

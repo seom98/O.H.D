@@ -21,7 +21,7 @@ export default function Router() {
         <Route exact path='/' element={<HomePage />} />
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/signin' element={<SignInPage />} />
-        <Route path='/rooms' element={<RoomPage />} />
+        <Route path='/rooms/:uuidId' element={<RoomPage />} />
         <Route path='/writers' element={<WritersPage />} />
       </Routes>
     </BrowserRouter>
