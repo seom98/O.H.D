@@ -8,7 +8,7 @@ export default function RoomPage() {
     return (
         <>
             <h1>룸</h1>
-
+            
             <CopyToClipboard text={url}>
                 <button>내방 초대하기</button>
             </CopyToClipboard>

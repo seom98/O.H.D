@@ -21,7 +21,7 @@ const ColorChooser = () => {
             {selectedColor && selectedNumber ? (
                 <div><GiftBoxIcon color={selectedColor} number={selectedNumber} /></div>
             ) :
-                <div><GiftBoxIcon color='whitee' number={1} /></div>
+                <div><GiftBoxIcon color='red' number={1} /></div>
             }
 
             <div>

@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+
       <header className="App-header">
         <ul>{message.map((v, idx) =>
           <li key={ `${idx}-${v}` }>
@@ -19,6 +20,7 @@ function App() {
           </li>)}
         </ul>
       </header>
+      
       <Router />
     </div>
   );

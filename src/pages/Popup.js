@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import ColorChooser from "../ColorChooser";
+import ColorChooser from "./ColorChooser";
 
-const Popup = () => {
+
+const Popup = ({setGiftList, setModalIsOpen}) => {
   const [step, setStep] = useState(1);
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
@@ -10,6 +11,11 @@ const Popup = () => {
   const handleNext = () => { setStep(2); };
 
   const handlePrevious = () => { setStep(1); };
+
+  const completeHandler = () => {
+    setGiftList((old) => [...old, {message, from ,to}]);
+    setModalIsOpen(false);
+  };
 
   return (
     <div>
@@ -39,13 +45,15 @@ const Popup = () => {
           <button onClick={handleNext}>다음</button>
         </div>
       )}
+
       {step === 2 && (
         <div>
           <ColorChooser />
           <button onClick={handlePrevious}>이전</button>
-          <button>완료</button>
+          <button onClick={completeHandler}>완료</button>
         </div>
       )}
+      
     </div>
   );
 };
