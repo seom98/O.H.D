@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ColorChooser from "./ColorChooser";
+import GiftBoxChooser from "./GiftBoxChooser";
 
 
-const Popup = ({setGiftList, setModalIsOpen}) => {
+const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
   const [step, setStep] = useState(1);
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
@@ -28,6 +28,7 @@ const Popup = ({setGiftList, setModalIsOpen}) => {
             value={to}
             onChange={(e) => setTo(e.target.value)}
           /><br />
+
           <label for="Message">메시지:</label><br />
           <input
             type="text"
@@ -35,6 +36,7 @@ const Popup = ({setGiftList, setModalIsOpen}) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           /><br />
+          
           <label for="From">From:</label><br />
           <input
             type="text"
@@ -42,13 +44,14 @@ const Popup = ({setGiftList, setModalIsOpen}) => {
             value={from}
             onChange={(e) => setFrom(e.target.value)}
           /><br />
+          
           <button onClick={handleNext}>다음</button>
         </div>
       )}
 
       {step === 2 && (
         <div>
-          <ColorChooser />
+          <GiftBoxChooser />
           <button onClick={handlePrevious}>이전</button>
           <button onClick={completeHandler}>완료</button>
         </div>
@@ -58,4 +61,4 @@ const Popup = ({setGiftList, setModalIsOpen}) => {
   );
 };
 
-export default Popup;
+export default GiftBoxPopup;

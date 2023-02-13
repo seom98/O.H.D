@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import Popup from './Popup'
+import GiftBoxPopup from './GiftBoxPopup'
 
 export default function WritersPage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -16,11 +16,11 @@ export default function WritersPage() {
                 </div>
             ))
             }
-            
+
             <button onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-                <Popup setGiftList={setGiftList} setModalIsOpen={setModalIsOpen} />
+                <GiftBoxPopup setGiftList={setGiftList} setModalIsOpen={setModalIsOpen} />
             </Modal>
         </>
     );

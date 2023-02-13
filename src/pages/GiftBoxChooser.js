@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GiftBoxIcon from "./GiftBoxIcon"
 
-const ColorChooser = () => {
+const GiftBoxChooser = () => {
     const [selectedColor, setSelectedColor] = useState(null);
     const [selectedNumber, setSelectedNumber] = useState(null);
 
@@ -44,4 +44,4 @@ const ColorChooser = () => {
     );
 };
 
-export default ColorChooser;
+export default GiftBoxChooser;
