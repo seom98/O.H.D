@@ -7,13 +7,15 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
   const [from, setFrom] = useState("");
+  const [color, setColor] = useState()
+  const [number, setNumber] = useState()
 
   const handleNext = () => { setStep(2); };
 
   const handlePrevious = () => { setStep(1); };
 
   const completeHandler = () => {
-    setGiftList((old) => [...old, {message, from ,to}]);
+    setGiftList((old) => [...old, {message, from ,to, number, color}]);
     setModalIsOpen(false);
   };
 
@@ -21,7 +23,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
     <div>
       {step === 1 && (
         <div>
-          <label for="To">To:</label><br />
+          <label htmlFor="To">To:</label><br />
           <input
             type="text"
             placeholder="받는사람"
@@ -29,7 +31,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
             onChange={(e) => setTo(e.target.value)}
           /><br />
 
-          <label for="Message">메시지:</label><br />
+          <label htmlFor="Message">메시지:</label><br />
           <input
             type="text"
             placeholder="메시지"
@@ -37,7 +39,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
             onChange={(e) => setMessage(e.target.value)}
           /><br />
           
-          <label for="From">From:</label><br />
+          <label htmlFor="From">From:</label><br />
           <input
             type="text"
             placeholder="주는사람"
@@ -51,7 +53,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
 
       {step === 2 && (
         <div>
-          <GiftBoxChooser />
+          <GiftBoxChooser setColor={setColor} setNumber={setNumber} />
           <button onClick={handlePrevious}>이전</button>
           <button onClick={completeHandler}>완료</button>
         </div>
