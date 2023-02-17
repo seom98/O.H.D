@@ -22,10 +22,10 @@ const GIFT_IMAGES = {
     white: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
 };
 
-function GiftBoxIcon({ color = 'red', number = 1 }) {
+function GiftBoxIcon({ color = 'red', number = 1, width, height }) {
     const src = GIFT_IMAGES[color][number - 1];
     const alt = `${color} ${number}`;
-    const style = { width: '200px', height: '200px', };
+    const style = { width, height};
     return <img src={src} alt={alt} style={style} />;
 }
 

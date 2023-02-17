@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router";
-
+import "./button.css"
 
 const SignUp = () => {
   const [userId, setUserId] = useState("");
@@ -39,6 +39,7 @@ const SignUp = () => {
 
             <label htmlFor="userid">아이디:</label><br/>
             <input
+                className="input"
                 type="text"
                 id="userid"
                 placeholder="아이디를 입력해주세요"
@@ -48,6 +49,7 @@ const SignUp = () => {
 
             <label htmlFor="pw">비밀번호:</label><br/>
             <input
+                className="input"
                 type="password"
                 id="pw"
                 placeholder="비밀번호를 입력해주세요"
@@ -57,6 +59,7 @@ const SignUp = () => {
 
             <label htmlFor="title">내 방 이름:</label><br />
             <input
+                className="input"
                 type="text"
                 id="title"
                 placeholder="방 이름을 입력해주세요."
@@ -66,13 +69,14 @@ const SignUp = () => {
 
             <label htmlFor="dDay">D-day:</label><br />
             <input
+                className="input"
                 type="date"
                 id="dDay"
                 value={dDay}
                 onChange={(e) => setDDay(e.target.value)}
             /><br />
 
-            <button type="submit" value="생성하기"> 생성하기 </button>
+            <button className="button1" type="submit" value="생성하기"> 생성하기 </button>
           </form>
         </div>
       </>

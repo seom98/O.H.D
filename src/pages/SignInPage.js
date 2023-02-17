@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./button.css"
 
 
 const SignIn = () => {
@@ -36,6 +36,7 @@ const SignIn = () => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="userId">아이디:</label><br />
           <input
+            className="input"
             type="text"
             name="userId"
             placeholder="아이디를 입력해주세요"
@@ -45,6 +46,7 @@ const SignIn = () => {
 
           <label htmlFor="pw">비밀번호:</label><br />
           <input
+            className="input"
             type="password"
             name="pw"
             placeholder="비밀번호를 입력해주세요"
@@ -52,7 +54,7 @@ const SignIn = () => {
             onChange={(e) => setPw(e.target.value)}
           /><br />
 
-          <button type="submit" value="로그인"> 로그인 </button>
+          <button type="submit" value="로그인" className="button1"> 로그인 </button>
         </form>
       </div>
     </>

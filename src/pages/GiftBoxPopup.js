@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GiftBoxChooser from "./GiftBoxChooser";
-
+import "./button.css"
 
 const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
   const [step, setStep] = useState(1);
@@ -25,6 +25,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
         <div>
           <label htmlFor="To">To:</label><br />
           <input
+            className="input"
             type="text"
             placeholder="받는사람"
             value={to}
@@ -33,6 +34,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
 
           <label htmlFor="Message">메시지:</label><br />
           <input
+            className="input2"
             type="text"
             placeholder="메시지"
             value={message}
@@ -41,21 +43,22 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
           
           <label htmlFor="From">From:</label><br />
           <input
+            className="input"
             type="text"
             placeholder="주는사람"
             value={from}
             onChange={(e) => setFrom(e.target.value)}
           /><br />
           
-          <button onClick={handleNext}>다음</button>
+          <button className="button1" onClick={handleNext}>다음</button>
         </div>
       )}
 
       {step === 2 && (
         <div>
           <GiftBoxChooser setColor={setColor} setNumber={setNumber} />
-          <button onClick={handlePrevious}>이전</button>
-          <button onClick={completeHandler}>완료</button>
+          <button className="button2" onClick={handlePrevious}>이전</button>
+          <button className="button2" onClick={completeHandler}>완료</button>
         </div>
       )}
       

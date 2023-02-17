@@ -1,0 +1,63 @@
+.button1 {
+    box-sizing: border-box;
+
+    text-align: center;
+    margin: 10px;
+    margin-top: 10px;
+    width: 300px;
+    height: 60px;
+
+    background: #ffffff;
+    border: 2px solid #ff65ed;
+    border-radius: 20px;
+
+    font-size: 20px;
+    font-style: italic;
+
+}
+
+.button2 {
+    box-sizing: border-box;
+
+    text-align: center;
+    margin: 10px;
+    margin-top: 10px;
+    width: 140px;
+    height: 60px;
+
+    background: #ffffff;
+    border: 2px solid #ff65ed;
+    border-radius: 20px;
+
+    font-size: 20px;
+    font-style: italic;
+
+}
+
+.input {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+
+    background: #ffffff;
+    border: 2px solid #7a2c2c;
+    border-radius: 5px;
+
+    font-size: 15px;
+    text-align: center;
+}
+
+.input2 {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 300px;
+    height: 80px;
+
+    background: #ffffff;
+    border: 2px solid #7a2c2c;
+    border-radius: 5px;
+
+    font-size: 15px;
+    text-align: center;
+}
