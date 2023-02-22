@@ -16,15 +16,15 @@ import GiftBox_4_3 from '../assets/GiftBox_4_3.png';
 import GiftBox_4_4 from '../assets/GiftBox_4_4.png';
 
 const GIFT_IMAGES = {
-    red: [GiftBox_1_1, GiftBox_1_2, GiftBox_1_3, GiftBox_1_4],
-    green: [GiftBox_2_1, GiftBox_2_2, GiftBox_2_3, GiftBox_2_4],
-    blue: [GiftBox_3_1, GiftBox_3_2, GiftBox_3_3, GiftBox_3_4],
-    white: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
+    r: [GiftBox_1_1, GiftBox_1_2, GiftBox_1_3, GiftBox_1_4],
+    g: [GiftBox_2_1, GiftBox_2_2, GiftBox_2_3, GiftBox_2_4],
+    b: [GiftBox_3_1, GiftBox_3_2, GiftBox_3_3, GiftBox_3_4],
+    w: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
 };
 
-function GiftBoxIcon({ color = 'red', number = 1, width, height }) {
-    const src = GIFT_IMAGES[color][number - 1];
-    const alt = `${color} ${number}`;
+function GiftBoxIcon({ boxColor = 'r', ribbonColor = 1, width, height }) {
+    const src = GIFT_IMAGES[boxColor][ribbonColor - 1];
+    const alt = `${boxColor} ${ribbonColor}`;
     const style = { width, height};
     return <img src={src} alt={alt} style={style} />;
 }

@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import GiftBoxIcon from './GiftBoxIcon';
 import GiftBoxPopup from './GiftBoxPopup'
 import './WritersPage.css'
-import "./button.css"
+import "./Pages.css"
 
 
 
@@ -18,18 +18,18 @@ export default function WritersPage() {
 
             <div className='container'>
                 <div className='div1'>
-                    {giftList.filter((value, index) => index % 3 === 1).map(({ color, number }) => (
-                        <GiftBoxIcon color={color} number={number}  width="100px" height="100px"/>
+                    {giftList.filter((value, index) => index % 3 === 1).map(({ boxColor, ribbonColor }) => (
+                        <GiftBoxIcon boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
                     ))}
                 </div>
                 <div className='div2'>
-                    {giftList.filter((value, index) => index % 3 === 0).map(({ color, number }) => (
-                        <GiftBoxIcon color={color} number={number}  width="100px" height="100px"/>
+                    {giftList.filter((value, index) => index % 3 === 0).map(({ boxColor, ribbonColor }) => (
+                        <GiftBoxIcon boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
                     ))}
                 </div>
                 <div className='div3'>
-                    {giftList.filter((value, index) => index % 3 === 2).map(({ color, number }) => (
-                        <GiftBoxIcon color={color} number={number} width="100px" height="100px"/>
+                    {giftList.filter((value, index) => index % 3 === 2).map(({ boxColor, ribbonColor }) => (
+                        <GiftBoxIcon boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px"/>
                     ))}
                 </div>
             </div>

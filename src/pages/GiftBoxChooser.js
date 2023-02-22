@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import GiftBoxIcon from "./GiftBoxIcon"
 
-const GiftBoxChooser = ({ setNumber, setColor }) => {
-    const [selectedColor, setSelectedColor] = useState(null);
-    const [selectedNumber, setSelectedNumber] = useState(null);
+const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
+    const [selectedBoxColor, setSelectedBoxColor] = useState(null);
+    const [selectedRibbonColor, setSelectedRibbonColor] = useState(null);
 
-    const colors = ['red', 'green', 'blue', 'white'];
-    const numbers = [1, 2, 3, 4];
+    const boxColors = ['r', 'g', 'b', 'w'];
+    const ribbonColors = [1, 2, 3, 4];
 
-    const handleColorClick = color => {
-        setSelectedColor(color);
-        setColor(color)
+    const handleColorClick = boxColor => {
+        setSelectedBoxColor(boxColor);
+        setBoxColor(boxColor)
     };
 
-    const handleNumberClick = number => {
-        setSelectedNumber(number);
-        setNumber(number)
+    const handleNumberClick = ribbonColor => {
+        setSelectedRibbonColor(ribbonColor);
+        setRibbonColor(ribbonColor)
     };
 
     const buttonStyle = {
@@ -30,24 +30,24 @@ const GiftBoxChooser = ({ setNumber, setColor }) => {
 
     return (
         <div>
-            {selectedColor && selectedNumber ? (
-                <div><GiftBoxIcon color={selectedColor} number={selectedNumber}  width="150px" height="150px"/></div>
+            {selectedBoxColor && selectedRibbonColor ? (
+                <div><GiftBoxIcon boxColor={selectedBoxColor} ribbonColor={selectedRibbonColor}  width="150px" height="150px"/></div>
             ) :
-                <div><GiftBoxIcon color='red' number={1}  width="150px" height="150px"/></div>
+                <div><GiftBoxIcon BoxColor='r' ribbonColor={1}  width="150px" height="150px"/></div>
             }
 
             <div>
-                {colors.map(color => (
-                    <button style={buttonStyle} key={color} onClick={() => handleColorClick(color)}>
-                    {color}
+                {boxColors.map(BoxColor => (
+                    <button style={buttonStyle} key={BoxColor} onClick={() => handleColorClick(BoxColor)}>
+                    {BoxColor}
                     </button>
                 ))}
             </div>
 
             <div>
-                {numbers.map(number => (
-                    <button style={buttonStyle} key={number} onClick={() => handleNumberClick(number)}>
-                    {number}
+                {ribbonColors.map(ribbonColor => (
+                    <button style={buttonStyle} key={ribbonColor} onClick={() => handleNumberClick(ribbonColor)}>
+                    {ribbonColor}
                     </button>
                 ))}
             </div>

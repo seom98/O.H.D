@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import GiftBoxChooser from "./GiftBoxChooser";
-import "./button.css"
+import "./Pages.css"
 
 const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
   const [step, setStep] = useState(1);
   const [to, setTo] = useState("");
   const [message, setMessage] = useState("");
   const [from, setFrom] = useState("");
-  const [color, setColor] = useState()
-  const [number, setNumber] = useState()
+  const [boxColor, setBoxColor] = useState()
+  const [ribbonColor, setRibbonColor] = useState()
 
   const handleNext = () => { setStep(2); };
 
   const handlePrevious = () => { setStep(1); };
 
   const completeHandler = () => {
-    setGiftList((old) => [...old, {message, from ,to, number, color}]);
+    setGiftList((old) => [...old, {message, from, to, boxColor, ribbonColor}]);
     setModalIsOpen(false);
   };
 
@@ -56,7 +56,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
 
       {step === 2 && (
         <div>
-          <GiftBoxChooser setColor={setColor} setNumber={setNumber} />
+          <GiftBoxChooser setBoxColor={setBoxColor} setRibbonColor={setRibbonColor} />
           <button className="button2" onClick={handlePrevious}>이전</button>
           <button className="button2" onClick={completeHandler}>완료</button>
         </div>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router";
-import "./button.css"
+import "./Pages.css"
 
 const SignUp = () => {
   const [userId, setUserId] = useState("");
