@@ -14,8 +14,9 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
 
   const handleNext = () => { setStep(2); };
 
-  const handlePrevious = () => { setStep(1); };
+  const handlePrevious = () => { setStep(1); }; 
 
+  
   const completeHandler = async () => {
 
     console.log(uuidId , "?")
