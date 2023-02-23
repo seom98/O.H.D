@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import Modal from 'react-modal';
 import GiftBoxIcon from './GiftBoxIcon';
 import GiftBoxPopup from './GiftBoxPopup'
-import './WritersPage.css'
 import "./Pages.css"
 
 Modal.setAppElement('#root');
@@ -15,17 +14,12 @@ export default function WritersPage() {
 
     // 여기서 페이지가 화면에 보이면 요청보냄
     useEffect(() => { 
-
         (async () => {
             const response = await fetch (`http://localhost:8080/api/rooms/${uuidId}`)
-
             const data = await response.json()
-
             setGiftList(data.giftList)
-            
-
         })()        
-    },[])
+    },[uuidId])
     
 
     return (
@@ -60,7 +54,7 @@ export default function WritersPage() {
             } */}
 
 
-            <button className='button1' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
+            <button className='button1 bbb' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
 
             <Modal appElement={document.getElementById('root')} 
                     isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>

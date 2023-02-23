@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import GiftBoxChooser from "./GiftBoxChooser";
-import "./Pages.css"
 import { useParams } from 'react-router-dom';
+import "./Pages.css";
 
-const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
+const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
   const [step, setStep] = useState(1);
   const [gto, setTo] = useState("");
   const [message, setMessage] = useState("");
   const [gfrom, setFrom] = useState("");
   const [boxColor, setBoxColor] = useState();
   const [ribbonColor, setRibbonColor] = useState();
+
   const uuidId = useParams().uuidId;
 
   const handleNext = () => { setStep(2); };
+  const handlePrevious = () => { setStep(1); };
 
-  const handlePrevious = () => { setStep(1); }; 
-
-  
   const completeHandler = async () => {
-
-    console.log(uuidId , "?")
-    
-    const response = await fetch(`http://localhost:8080/api/write/${uuidId}`, {
+    await fetch(`http://localhost:8080/api/write/${uuidId}`, {
       method: 'POST',
       headers: { "Content-Type" : "application/json" },
       body: JSON.stringify({
@@ -30,15 +26,10 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
         gfrom,
         boxColor,
         ribbonColor,
-      }  )
-       
+      })
     });
-    const data = await response.json()
-    
-    console.log(data)
-    
-    setGiftList((old) => [...old, {message, gfrom, gto, boxColor, ribbonColor}]);
-   setModalIsOpen(false);
+    setGiftList((old) => [...old, { message, gfrom, gto, boxColor, ribbonColor }]);
+    setModalIsOpen(false);
   };
 
   return (
@@ -62,7 +53,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           /><br />
-          
+
           <label htmlFor="From">From:</label><br />
           <input
             className="input"
@@ -71,7 +62,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
             value={gfrom}
             onChange={(e) => setFrom(e.target.value)}
           /><br />
-          
+
           <button className="button1" onClick={handleNext}>다음</button>
         </div>
       )}
@@ -83,7 +74,7 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
           <button className="button2" onClick={completeHandler}>완료</button>
         </div>
       )}
-      
+
     </div>
   );
 };

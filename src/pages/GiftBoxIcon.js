@@ -25,8 +25,8 @@ const GIFT_IMAGES = {
 function GiftBoxIcon({ boxColor = 'r', ribbonColor = 1, width, height }) {
     const src = GIFT_IMAGES[boxColor][ribbonColor - 1];
     const alt = `${boxColor} ${ribbonColor}`;
-    const style = { width, height};
-    return <img src={src} alt={alt} style={style} />;
-}
+    const style = { width, height };
+    return <img src={src} alt={alt} style={style} />
+};
 
 export default GiftBoxIcon;

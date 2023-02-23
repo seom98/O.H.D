@@ -54,7 +54,7 @@ const SignUp = () => {
                 onChange={(e) => setDDay(e.target.value)}
             /><br />
 
-            <button className="button1" type="submit" value="생성하기"> 생성하기 </button>
+            <button className="button1 bbb" type="submit" value="생성하기"> 생성하기 </button>
           </form>
         </div>
       </>

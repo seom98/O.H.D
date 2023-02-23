@@ -12,14 +12,12 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
 
     const handleColorClick = boxColor => {
         setSelectedBoxColor(boxColor);
-        setBoxColor(boxColor)
-
-
+        setBoxColor(boxColor);
     };
 
     const handleNumberClick = ribbonColor => {
         setSelectedRibbonColor(ribbonColor);
-        setRibbonColor(ribbonColor)
+        setRibbonColor(ribbonColor);
     };
 
     const buttonStyle = {
@@ -33,43 +31,40 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
 
     return (
         <div>
+            
             {selectedBoxColor && selectedRibbonColor ? (
-                <div><GiftBoxIcon 
-                        boxColor={selectedBoxColor} 
-                        ribbonColor={selectedRibbonColor}  
-                        width="150px" height="150px"/>
+                <div><GiftBoxIcon
+                    boxColor={selectedBoxColor}
+                    ribbonColor={selectedRibbonColor}
+                    width="150px" height="150px" />
                 </div>
             ) :
-                <div><GiftBoxIcon 
-                        boxColor='r' 
-                        ribbonColor={1}  
-                        width="150px" height="150px"/>
+                <div><GiftBoxIcon
+                    boxColor='r'
+                    ribbonColor={1}
+                    width="150px" height="150px" />
                 </div>
             }
 
-            <div>
-                boxColor
-            </div>
+            <div>boxColor</div>
             <div>
                 {boxColors.map((boxColor, index) => (
-                    <button style={{...buttonStyle, backgroundColor: boxColorName[index], border: selectedBoxColor === boxColor ? '5px solid black' : null }} 
-                            key={boxColor} onClick={() => handleColorClick(boxColor)}>
+                    <button style={{ ...buttonStyle, backgroundColor: boxColorName[index], border: selectedBoxColor === boxColor ? '5px solid black' : null }}
+                        key={boxColor} onClick={() => handleColorClick(boxColor)}>
                     </button>
                 ))}
             </div>
-            <div style={{marginTop: "50px"}}>
-                ribbonColor
-            </div>
-            <div style={{marginBottom: "50px"}}>
+            <div style={{ marginTop: "50px" }}>ribbonColor</div>
+            <div style={{ marginBottom: "50px" }}>
                 {ribbonColors.map((ribbonColor, index) => (
-                    <button style={{...buttonStyle, backgroundColor: ribbonColorName[index]}} 
-                            key={ribbonColor} onClick={() => handleNumberClick(ribbonColor)}>
+                    <button style={{ ...buttonStyle, backgroundColor: ribbonColorName[index], border: selectedRibbonColor === ribbonColor ? '5px solid black' : null }}
+                        key={ribbonColor} onClick={() => handleNumberClick(ribbonColor)}>
                     </button>
                 ))}
             </div>
 
         </div>
-    );
+    )
 };
 
 export default GiftBoxChooser;
