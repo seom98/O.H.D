@@ -14,9 +14,25 @@ const GiftBoxPopup = ({setGiftList, setModalIsOpen}) => {
 
   const handlePrevious = () => { setStep(1); };
 
-  const completeHandler = () => {
+  const completeHandler = async () => {
+    
+    // const response = await fetch('http://localhost:8080/api', {
+    //   method: 'POST',
+    //   body: {
+    //     to,
+    //     message,
+    //     from,
+    //     boxColor,
+    //     ribbonColor,
+    //   }
+      
+    // })  ;
+    // const data = await response.json()
+    
+    // console.log(data)
+    
     setGiftList((old) => [...old, {message, from, to, boxColor, ribbonColor}]);
-    setModalIsOpen(false);
+   setModalIsOpen(false);
   };
 
   return (

@@ -18,7 +18,6 @@ function HomePage() {
         <GiftBoxIcon boxColor={boxColors[b]} ribbonColor={a}  width="350px" height="350px"/>
       </div>
 
-
       <div>
         <Link to="/signin"><button className="button1">로그인</button></Link><br />
         <Link to="/signup"><button className="button1">회원가입</button></Link>

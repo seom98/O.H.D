@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import GiftBoxIcon from './GiftBoxIcon';
 import GiftBoxPopup from './GiftBoxPopup'
 import './WritersPage.css'
 import "./Pages.css"
 
-
+Modal.setAppElement('#root');
 
 export default function WritersPage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [giftList, setGiftList] = useState([]);
+
+    // 여기서 페이지가 화면에 보이면 요청보냄
+    useEffect(() => { 
+
+        (async () => {
+            const response = await fetch ('http://localhost:8080/api')
+
+            const data = await response.json()
+
+            setGiftList(data)
+
+        })()
+
+
+        
+    },[])
     
 
     return (
@@ -19,17 +35,17 @@ export default function WritersPage() {
             <div className='container'>
                 <div className='div1'>
                     {giftList.filter((value, index) => index % 3 === 1).map(({ boxColor, ribbonColor }) => (
-                        <GiftBoxIcon boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
+                        <GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
                     ))}
                 </div>
                 <div className='div2'>
                     {giftList.filter((value, index) => index % 3 === 0).map(({ boxColor, ribbonColor }) => (
-                        <GiftBoxIcon boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
+                        <GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
                     ))}
                 </div>
                 <div className='div3'>
                     {giftList.filter((value, index) => index % 3 === 2).map(({ boxColor, ribbonColor }) => (
-                        <GiftBoxIcon boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px"/>
+                        <GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px"/>
                     ))}
                 </div>
             </div>
@@ -46,7 +62,8 @@ export default function WritersPage() {
 
             <button className='button1' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
 
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+            <Modal appElement={document.getElementById('root')} 
+                    isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                 <GiftBoxPopup setGiftList={setGiftList} setModalIsOpen={setModalIsOpen} />
             </Modal>
         </>
