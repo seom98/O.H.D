@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Modal from 'react-modal';
 import GiftBoxIcon from './GiftBoxIcon';
 import GiftBoxPopup from './GiftBoxPopup'
@@ -10,21 +11,20 @@ Modal.setAppElement('#root');
 export default function WritersPage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [giftList, setGiftList] = useState([]);
+    const uuidId = useParams().uuidId;
 
     // 여기서 페이지가 화면에 보이면 요청보냄
     useEffect(() => { 
 
         (async () => {
-            const response = await fetch ('http://localhost:8080/api')
+            const response = await fetch (`http://localhost:8080/api/rooms/${uuidId}`)
 
             const data = await response.json()
 
-            setGiftList(data)
+            setGiftList(data.giftList)
+            
 
-        })()
-
-
-        
+        })()        
     },[])
     
 

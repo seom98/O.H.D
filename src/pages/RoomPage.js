@@ -1,41 +1,46 @@
 import React, {useState, useEffect} from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import GiftBoxIcon from "./GiftBoxIcon";
+import { useParams } from 'react-router-dom';
 
 
 export default function RoomPage() {
-    const url = `http://localhost:3000/writers/`; // url 복사
     const [giftList, setGiftList] = useState([]);
-    // const [room ,setRoom] = useState()
+    const [room ,setRoom] = useState();
+    const uuidId = useParams().uuidId;
 
     //여기서 페이지가 화면에 보이면 요청보냄
+
     useEffect(() => { 
 
         (async () => {
-            const response = await fetch ('http://localhost:8080/api')
+            const response = await fetch (`http://localhost:8080/api/rooms/${uuidId}`)
 
             const data = await response.json()
 
-            setGiftList(data)
+            setGiftList(data.giftList)
 
         })()        
     },[])
 
+    const url1 = `http://localhost:3000/writers/${uuidId}`; // url 복사
+    const url2 = `http://localhost:3000/rooms/${uuidId}`; // url 복사
 
-    //   useEffect(() => { 
 
-    //     (async () => {
-    //         const response = await fetch ('http://localhost:8080/api/roomdata')
+      useEffect(() => {(async () => {
+            const response = await fetch (`http://localhost:8080/api/rooms/${uuidId}`)
 
-    //         const data = await response.json()
+            const data = await response.json()
 
-    //         setRoom(data)
+            setRoom(data)
 
-    //     })()
+        })()
 
 
         
-    // },[])
+    },[]);
+
+    console.log("test :: ", uuidId);
     return (
         <>
             <h1>룸</h1>
@@ -56,8 +61,11 @@ export default function RoomPage() {
                     ))}
                 </div>
             </div>
-            <CopyToClipboard text={url}>
+            <CopyToClipboard text={url1}>
                 <button>내방 초대하기</button>
+            </CopyToClipboard>
+            <CopyToClipboard text={url2}>
+                <button>내방 기억하기</button>
             </CopyToClipboard>
         </>
     );

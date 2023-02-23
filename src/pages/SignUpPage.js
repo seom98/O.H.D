@@ -3,8 +3,6 @@ import {useNavigate} from "react-router";
 import "./Pages.css"
 
 const SignUp = () => {
-  const [userId, setUserId] = useState("");
-  const [pw, setPw] = useState("");
   const [title, setTitle] = useState("");
   const [dDay, setDDay] = useState("");
   const navigate = useNavigate();
@@ -12,19 +10,19 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({ userId, pw, title, dDay });
+    console.log({ title, dDay });
 
     const response = await fetch("/api/signup", {
       method: "POST",
       headers: { "Content-Type" : "application/json" },
-      body: JSON.stringify({ userId, pw, title, dDay })
+      body: JSON.stringify({ title, dDay })
     });
 
     const data = await response.json();
 
 
     if (response.ok) {
-      const uuidId = data["uuidId"]
+      const uuidId = data
       navigate(`/rooms/${uuidId}`);
     }
 
@@ -36,26 +34,6 @@ const SignUp = () => {
         <div>
           <h2>Welcome</h2>
           <form onSubmit={handleSubmit}>
-
-            <label htmlFor="userid">아이디:</label><br/>
-            <input
-                className="input"
-                type="text"
-                id="userid"
-                placeholder="아이디를 입력해주세요"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-            /><br/>
-
-            <label htmlFor="pw">비밀번호:</label><br/>
-            <input
-                className="input"
-                type="password"
-                id="pw"
-                placeholder="비밀번호를 입력해주세요"
-                value={pw}
-                onChange={(e) => setPw(e.target.value)}
-            /><br/>
 
             <label htmlFor="title">내 방 이름:</label><br />
             <input
