@@ -2,29 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Modal from 'react-modal';
 import GiftBoxIcon from './GiftBoxIcon';
-import GiftBoxPopup from './GiftBoxPopup'
+import GiftBoxPopup from './GiftBoxPopup';
+import ProgressBar from './ProgressBar'
 import "./Pages.css"
+
 
 Modal.setAppElement('#root');
 
 export default function WritersPage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [giftList, setGiftList] = useState([]);
+    const [room, setRoom] = useState();
     const uuidId = useParams().uuidId;
+    const diffInMs = new Date(room?.dday) - new Date(room?.createdAt);
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
 
-    // 여기서 페이지가 화면에 보이면 요청보냄
-    useEffect(() => { 
+    useEffect(() => {
         (async () => {
-            const response = await fetch (`http://localhost:8080/api/rooms/${uuidId}`)
-            const data = await response.json()
-            setGiftList(data.giftList)
-        })()        
-    },[uuidId])
-    
+            const response = await fetch(`http://localhost:8080/api/rooms/${uuidId}`);
+            const data = await response.json();
+            setGiftList(data.giftList);
+            setRoom(data.memberInfo);
+        })();
+    }, [uuidId]);
 
     return (
         <>
-            <h1>작성자페이지</h1>
+            <h1>{room?.title}의 방</h1>
+            <div style={{display: "flex", justifyContent: "center"}}>
+            <div style={{fontSize: "24px"}}>D-{diffInDays}</div>
+            <ProgressBar
+                value={new Date() - new Date(room?.createdAt)}
+                maxValue={new Date(room?.dday) - new Date(room?.createdAt)}/>
+            </div>
 
             <div className='container'>
                 <div className='div1'>
@@ -53,9 +63,7 @@ export default function WritersPage() {
             ))
             } */}
 
-
             <button className='button1 bbb' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
-
             <Modal appElement={document.getElementById('root')} 
                     isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                 <GiftBoxPopup setGiftList={setGiftList} setModalIsOpen={setModalIsOpen} />
