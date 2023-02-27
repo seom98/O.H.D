@@ -1,5 +1,5 @@
 import Router from "./Router";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 function App() {
   // const [message, setMessage] = useState([]);

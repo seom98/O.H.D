@@ -7,7 +7,6 @@ import ProgressBar from './ProgressBar'
 import "./Pages.css"
 
 
-Modal.setAppElement('#root');
 
 export default function WritersPage() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -37,21 +36,21 @@ export default function WritersPage() {
             </div>
 
             <div className='container'>
-                <div className='div1'>
-                    {giftList.filter((value, index) => index % 3 === 1).map(({ boxColor, ribbonColor }) => (
-                        <GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
-                    ))}
-                </div>
-                <div className='div2'>
-                    {giftList.filter((value, index) => index % 3 === 0).map(({ boxColor, ribbonColor }) => (
-                        <GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor}  width="100px" height="100px"/>
-                    ))}
-                </div>
-                <div className='div3'>
-                    {giftList.filter((value, index) => index % 3 === 2).map(({ boxColor, ribbonColor }) => (
-                        <GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px"/>
-                    ))}
-                </div>
+            <div className='div1'>
+                            {giftList.filter((value, index) => index % 3 === 1).map(({ giftId, boxColor, ribbonColor }) => (
+                                <GiftBoxIcon key={giftId} giftId={giftId} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px" onClick />
+                            ))}
+                        </div>
+                        <div className='div2'>
+                            {giftList.filter((value, index) => index % 3 === 0).map(({ giftId, boxColor, ribbonColor }) => (
+                                <GiftBoxIcon key={giftId} giftId={giftId} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px" onClick/>
+                            ))}
+                        </div>
+                        <div className='div3'>
+                            {giftList.filter((value, index) => index % 3 === 2).map(({ giftId, boxColor, ribbonColor }) => (
+                                <GiftBoxIcon key={giftId} giftId={giftId} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px" onClick/>
+                            ))}
+                        </div>
             </div>
 
             {/* {giftList.map(({ message, from, to, color, number }) => (

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import GiftBoxIcon from "./GiftBoxIcon";
-import { useParams } from "react-router-dom";
-import ProgressBar from './ProgressBar'
+import ProgressBar from './ProgressBar';
 
 export default function RoomPage() {
     const [giftList, setGiftList] = useState([]);
@@ -22,19 +22,17 @@ export default function RoomPage() {
         })();
     }, [uuidId]);
 
-    console.log(uuidId, "머야");
-
     return (
         <>
             <h1>{room?.title}의 방</h1>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-                <div style={{ fontSize: "24px" }}>D-{diffInDays}</div>
-                <ProgressBar
-                    value={new Date() - new Date(room?.createdAt)}
-                    maxValue={new Date(room?.dday) - new Date(room?.createdAt)} />
-            </div>
             {diffInDays > 0 ? (
                 <div>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <div style={{ fontSize: "24px" }}>D-{diffInDays}</div>
+                        <ProgressBar
+                            value={new Date() - new Date(room?.createdAt)}
+                            maxValue={new Date(room?.dday) - new Date(room?.createdAt)} />
+                    </div>
                     <div className='container'>
                         <div className='div1'>
                             {giftList.filter((value, index) => index % 3 === 1).map(({ boxColor, ribbonColor }) => (
@@ -62,20 +60,41 @@ export default function RoomPage() {
                 </div>
             ) :
                 <div>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <div style={{ fontSize: "24px" }}>D-Day</div>
+                    </div>
                     <div className='container'>
                         <div className='div1'>
-                            {giftList.filter((value, index) => index % 3 === 1).map(({ boxColor, ribbonColor }) => (
-                                <button><GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px" /></button>
+                            {giftList.filter((value, index) => index % 3 === 1).map(({ giftId, boxColor, ribbonColor }) => (
+                                <GiftBoxIcon
+                                    key={giftId}
+                                    giftId={giftId}
+                                    boxColor={boxColor}
+                                    ribbonColor={ribbonColor}
+                                    width="100px" height="100px"
+                                    onClick />
                             ))}
                         </div>
                         <div className='div2'>
-                            {giftList.filter((value, index) => index % 3 === 0).map(({ boxColor, ribbonColor }) => (
-                                <button><GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px" /></button>
+                            {giftList.filter((value, index) => index % 3 === 0).map(({ giftId, boxColor, ribbonColor }) => (
+                                <GiftBoxIcon
+                                    key={giftId}
+                                    giftId={giftId}
+                                    boxColor={boxColor}
+                                    ribbonColor={ribbonColor}
+                                    width="100px" height="100px"
+                                    onClick />
                             ))}
                         </div>
                         <div className='div3'>
-                            {giftList.filter((value, index) => index % 3 === 2).map(({ boxColor, ribbonColor }) => (
-                                <button><GiftBoxIcon key={boxColor} boxColor={boxColor} ribbonColor={ribbonColor} width="100px" height="100px" /></button>
+                            {giftList.filter((value, index) => index % 3 === 2).map(({ giftId, boxColor, ribbonColor }) => (
+                                <GiftBoxIcon
+                                    key={giftId}
+                                    giftId={giftId}
+                                    boxColor={boxColor}
+                                    ribbonColor={ribbonColor}
+                                    width="100px" height="100px"
+                                    onClick />
                             ))}
                         </div>
                     </div>
