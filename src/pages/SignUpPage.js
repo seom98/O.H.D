@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import "./Pages.css"
 
 const SignUp = () => {
@@ -14,7 +14,7 @@ const SignUp = () => {
 
     const response = await fetch("/api/signup", {
       method: "POST",
-      headers: { "Content-Type" : "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, dDay })
     });
 
@@ -29,35 +29,35 @@ const SignUp = () => {
   };
 
   return (
-      <>
-        <h1>회원가입페이지</h1>
-        <div>
-          <h2>Welcome</h2>
-          <form onSubmit={handleSubmit}>
+    <>
+      <h1>회원가입페이지</h1>
+      <div>
+        <h2>Welcome</h2>
+        <form onSubmit={handleSubmit}>
 
-            <label htmlFor="title">내 방 이름:</label><br />
-            <input
-                className="input"
-                type="text"
-                id="title"
-                placeholder="방 이름을 입력해주세요."
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            /><br />
+          <label htmlFor="title">내 방 이름:</label><br />
+          <input
+            className="input"
+            type="text"
+            id="title"
+            placeholder="방 이름을 입력해주세요."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          /><br />
 
-            <label htmlFor="dDay">D-day:</label><br />
-            <input
-                className="input"
-                type="date"
-                id="dDay"
-                value={dDay}
-                onChange={(e) => setDDay(e.target.value)}
-            /><br />
+          <label htmlFor="dDay">D-day:</label><br />
+          <input
+            className="input"
+            type="date"
+            id="dDay"
+            value={dDay}
+            onChange={(e) => setDDay(e.target.value)}
+          /><br />
 
-            <button className="button1 bbb" type="submit" value="생성하기"> 생성하기 </button>
-          </form>
-        </div>
-      </>
+          <button className="button1 bbb" type="submit" value="생성하기"> 생성하기 </button>
+        </form>
+      </div>
+    </>
   );
 };
 

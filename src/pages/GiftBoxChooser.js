@@ -31,7 +31,7 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
 
     return (
         <div>
-            
+
             {selectedBoxColor && selectedRibbonColor ? (
                 <div><GiftBoxIcon
                     boxColor={selectedBoxColor}
@@ -49,7 +49,10 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
             <div>boxColor</div>
             <div>
                 {boxColors.map((boxColor, index) => (
-                    <button style={{ ...buttonStyle, backgroundColor: boxColorName[index], border: selectedBoxColor === boxColor ? '5px solid black' : null }}
+                    <button style={{
+                        ...buttonStyle, backgroundColor: boxColorName[index],
+                        border: selectedBoxColor === boxColor ? '5px solid black' : null
+                    }}
                         key={boxColor} onClick={() => handleColorClick(boxColor)}>
                     </button>
                 ))}
@@ -57,7 +60,10 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
             <div style={{ marginTop: "50px" }}>ribbonColor</div>
             <div style={{ marginBottom: "50px" }}>
                 {ribbonColors.map((ribbonColor, index) => (
-                    <button style={{ ...buttonStyle, backgroundColor: ribbonColorName[index], border: selectedRibbonColor === ribbonColor ? '5px solid black' : null }}
+                    <button style={{
+                        ...buttonStyle, backgroundColor: ribbonColorName[index],
+                        border: selectedRibbonColor === ribbonColor ? '5px solid black' : null
+                    }}
                         key={ribbonColor} onClick={() => handleNumberClick(ribbonColor)}>
                     </button>
                 ))}

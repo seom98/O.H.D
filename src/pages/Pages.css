@@ -63,16 +63,17 @@
 }
 
 .container {
-	display: flex;
+    display: flex;
     justify-content: center;
 
 
     height: 500px;
-    overflow-y:  scroll;
-    
+    overflow-y: scroll;
+
 }
 
-.div1, .div3 {
+.div1,
+.div3 {
     justify-content: center;
     align-items: center;
     margin-top: 150px;

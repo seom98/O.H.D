@@ -18,6 +18,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import MessagePopup from "./MessagePopup.js"
 
 const GIFT_IMAGES = {
     r: [GiftBox_1_1, GiftBox_1_2, GiftBox_1_3, GiftBox_1_4],
@@ -46,12 +47,8 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height })
     }, [uuidId]);
 
     const updateCompleted = async () => {
-        try {
-            await axios.patch(`http://localhost:8080/api/checked/${giftId}`);
-            setModalIsOpen(true);
-        } catch (error) {
-            console.error(error);
-        }
+        await axios.patch(`http://localhost:8080/api/checked/${giftId}`);
+        setModalIsOpen(true);
     };
 
     return (
@@ -83,7 +80,7 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height })
                                     }}>
                                     <button onClick={() => setModalIsOpen(false)}>X</button>
                                     <h2>Gift Box Checked!</h2>
-
+                                    <MessagePopup />
                                 </Modal>
 
                             </div>
