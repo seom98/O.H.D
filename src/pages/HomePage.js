@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <div>
 
-      <h1 style={{ marginTop: "50px", fontSize: "70px", fontFamily: "Century Gothic, sans-serif" }}>O.H.D</h1>
+      <h1 style={{ marginTop: "100px", fontSize: "70px", fontFamily: "Century Gothic, sans-serif" }}>O.H.D</h1>
       <h6 style={{ fontSize: "20px" }}>Oh! happy day</h6>
 
       <div>

@@ -40,10 +40,10 @@ const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
   return (
     <div>
       {step === 1 && (
-        <div>
+        <div style={{marginTop: "30px"}}>
           <label htmlFor="To">To:</label><br />
           <input
-            className="input"
+            className="toInput"
             type="text"
             placeholder="받는사람"
             value={gto}
@@ -51,17 +51,17 @@ const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
           /><br />
 
           <label htmlFor="Message">메시지:</label><br />
-          <input
-            className="input2"
+          <textarea
+            className="messageInput"
             type="text"
-            placeholder="메시지"
+            placeholder="생성자에게 메시지를 적어주세요"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           /><br />
 
           <label htmlFor="From">From:</label><br />
           <input
-            className="input"
+            className="fromInput"
             type="text"
             placeholder="주는사람"
             value={gfrom}

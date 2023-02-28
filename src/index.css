@@ -1,8 +1,6 @@
 body {
     margin: 0 auto;
     text-align: center;
-    background-color: rgb(226, 180, 250)
+    background-color: #E68791;
+    color: #422629;
 };
-* {
-    margin: 0 auto;
-}

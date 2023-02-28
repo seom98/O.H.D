@@ -26,20 +26,20 @@ export default function WritersPage() {
 
     return (
         <>
-            <h1>{room?.title}의 방</h1>
+            <h1 className='roomName'>{room?.title}의 방</h1>
             {diffInDays > 0 ? (
-            <div style={{ display: "flex", justifyContent: "center" }}>
-                <div style={{ fontSize: "24px" }}>D-{diffInDays}</div>
-                <ProgressBar
-                    value={new Date() - new Date(room?.createdAt)}
-                    maxValue={new Date(room?.dday) - new Date(room?.createdAt)} />
-            </div>
-            ) :
-            (
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                <div style={{ fontSize: "24px" }}>D+{-diffInDays}</div>
-            </div>
-            )}
+                    <div style={{ fontSize: "34px" }}>D-{diffInDays}</div>
+                    <ProgressBar
+                        value={new Date() - new Date(room?.createdAt)}
+                        maxValue={new Date(room?.dday) - new Date(room?.createdAt)} />
+                </div>
+            ) :
+                (
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <div style={{ fontSize: "34px" }}>D+{-diffInDays}</div>
+                    </div>
+                )}
 
             <div className='container'>
                 <div className='div1'>
@@ -79,9 +79,24 @@ export default function WritersPage() {
 
 
 
-            <button className='button1 bbb' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
+            <button className='giftbutton' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
             <Modal appElement={document.getElementById('root')}
-                isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
+                style={{
+                    overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+                    content: {
+                        backgroundColor: "#ffeff1",
+                        borderRadius: "30px",
+                        width: '400px',
+                        height: '600px',
+                        margin: "auto",
+                        position: "fixed",
+                        top: "0",
+                        bottom: "0",
+                        left: "0",
+                        right: "0"
+                    }
+                }}>
                 <GiftBoxPopup setGiftList={setGiftList} setModalIsOpen={setModalIsOpen} />
             </Modal>
         </>

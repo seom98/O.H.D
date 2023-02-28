@@ -37,7 +37,7 @@ const SignUp = () => {
 
           <label htmlFor="title" style={{marginRight: "200px"}}>내 방 이름</label><br />
           <input
-            className="input"
+            className="titleInput"
             type="text"
             id="title"
             placeholder="방 이름을 입력해주세요."
@@ -47,7 +47,7 @@ const SignUp = () => {
           <div style={{marginTop: "50px"}}></div>
           <label htmlFor="dDay" style={{marginRight: "218px"}}>D-day</label><br />
           <input
-            className="input"
+            className="dDayInput"
             type="date"
             id="dDay"
             value={dDay}

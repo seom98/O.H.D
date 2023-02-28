@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import GiftBoxIcon from "./GiftBoxIcon";
 import ProgressBar from './ProgressBar';
-import toast from 'react-hot-toast';
+import toast,{Toaster} from 'react-hot-toast';
 
-const notify = () => toast.success('링크가 클립보드에 복사되었습니다.');
+
 
 
 export default function RoomPage() {
@@ -17,6 +17,12 @@ export default function RoomPage() {
     const diffInMs = new Date(room?.dday) - new Date();
     const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
     
+    const notify1 = () =>  {
+        toast.success('초대링크가 클립보드에 복사되었습니다.');
+    }
+    const notify2 = () =>  {
+        toast.success('기억링크가 클립보드에 복사되었습니다.');
+    }
 
 
     useEffect(() => {
@@ -30,11 +36,11 @@ export default function RoomPage() {
 
     return (
         <>
-            <h1>{room?.title}의 방</h1>
+            <h1 className="roomName">{room?.title}의 방</h1>
             {diffInDays > 0 ? (
                 <div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <div style={{ fontSize: "24px" }}>D-{diffInDays}</div>
+                        <div style={{ fontSize: "34px" }}>D-{diffInDays}</div>
                         <ProgressBar
                             value={new Date() - new Date(room?.createdAt)}
                             maxValue={new Date(room?.dday) - new Date(room?.createdAt)} />
@@ -70,16 +76,17 @@ export default function RoomPage() {
                     </div>
 
                     <CopyToClipboard text={url1}>
-                        <button className="button1">내방 초대하기</button>
+                        <button className="button1" onClick={() => notify1()} >내방 초대하기</button>
                     </CopyToClipboard>
                     <CopyToClipboard text={url2}>
-                        <button className="button1">내방 기억하기</button>
+                        <button className="button1" onClick={() => notify2()} >내방 기억하기</button>
                     </CopyToClipboard>
+                    <Toaster/>
                 </div>
             ) :
                 <div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <div style={{ fontSize: "24px" }}>D+{-diffInDays}</div>
+                        <div style={{ fontSize: "34px" }}>D+{-diffInDays}</div>
                     </div>
                     <div className='container'>
                         <div className='div1'>
@@ -89,10 +96,10 @@ export default function RoomPage() {
                                     giftId={giftId}
                                     boxColor={boxColor}
                                     ribbonColor={ribbonColor}
-                                    width="100%"
                                     gto={gto}
                                     gfrom={gfrom}
                                     message={message}
+                                    width="100%"
                                 />
                             ))}
                         </div>
@@ -103,10 +110,10 @@ export default function RoomPage() {
                                     giftId={giftId}
                                     boxColor={boxColor}
                                     ribbonColor={ribbonColor}
-                                    width="100%"
                                     gto={gto}
                                     gfrom={gfrom}
                                     message={message}
+                                    width="100%"
                                 />
                             ))}
                         </div>
@@ -117,20 +124,21 @@ export default function RoomPage() {
                                     giftId={giftId}
                                     boxColor={boxColor}
                                     ribbonColor={ribbonColor}
-                                    width="100%"
                                     gto={gto}
                                     gfrom={gfrom}
                                     message={message}
+                                    width="100%"
                                 />
                             ))}
                         </div>
                     </div>
                     <CopyToClipboard text={url1}>
-                        <button className="button1" onClick={notify}>내방 초대하기</button>
+                        <button className="button1" onClick={() => notify1()}>내방 초대하기</button>
                     </CopyToClipboard>
                     <CopyToClipboard text={url2}>
-                        <button className="button1" onClick={notify}>내방 기억하기</button>
+                        <button className="button1" onClick={() => notify2()}>내방 기억하기</button>
                     </CopyToClipboard>
+                    <Toaster/>
                 </div>}
         </>
     );
