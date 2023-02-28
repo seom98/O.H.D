@@ -27,7 +27,8 @@ const GIFT_IMAGES = {
     w: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
 };
 
-const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height }) => {
+const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, gto, gfrom, message }) => {
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const src = GIFT_IMAGES[boxColor][ribbonColor - 1];
     const alt = `${boxColor} ${ribbonColor}`;
@@ -55,7 +56,7 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height })
         <>
             {diffInDays > 0 ? (
                 <div>
-                    <img src={src} alt={alt} style={style} onClick={updateCompleted} />
+                    <img src={src} alt={alt} style={style} />
                 </div>
             ) :
                 <div>
@@ -80,7 +81,7 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height })
                                     }}>
                                     <button onClick={() => setModalIsOpen(false)}>X</button>
                                     <h2>Gift Box Checked!</h2>
-                                    <MessagePopup />
+                                    <MessagePopup gto={gto} gfrom={gfrom} message={message} />
                                 </Modal>
 
                             </div>

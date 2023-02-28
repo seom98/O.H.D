@@ -8,12 +8,17 @@ const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
   const [gto, setTo] = useState("");
   const [message, setMessage] = useState("");
   const [gfrom, setFrom] = useState("");
-  const [boxColor, setBoxColor] = useState();
-  const [ribbonColor, setRibbonColor] = useState();
+  const [boxColor, setBoxColor] = useState("r");
+  const [ribbonColor, setRibbonColor] = useState(1);
 
   const uuidId = useParams().uuidId;
 
-  const handleNext = () => { setStep(2); };
+  const handleNext = () => {
+    if (gfrom == "" || gto == "" || message == "") {
+      return
+    }
+    setStep(2);
+  };
   const handlePrevious = () => { setStep(1); };
 
   const completeHandler = async () => {

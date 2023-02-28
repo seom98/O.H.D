@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import GiftBoxIcon from "./GiftBoxIcon"
 
 const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
-    const [selectedBoxColor, setSelectedBoxColor] = useState(null);
-    const [selectedRibbonColor, setSelectedRibbonColor] = useState(null);
+    const [selectedBoxColor, setSelectedBoxColor] = useState("r");
+    const [selectedRibbonColor, setSelectedRibbonColor] = useState(1);
 
     const boxColors = ['r', 'g', 'b', 'w'];
     const boxColorName = ['#fc3556', '#35fc71', '#3581fc', '#f2f2f2'];
     const ribbonColors = [1, 2, 3, 4];
     const ribbonColorName = ['#1cfff0', '#f67fff', '#ffea71', '#ff0000'];
+
+
+
 
     const handleColorClick = boxColor => {
         setSelectedBoxColor(boxColor);
@@ -53,7 +56,7 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
                         ...buttonStyle, backgroundColor: boxColorName[index],
                         border: selectedBoxColor === boxColor ? '5px solid black' : null
                     }}
-                        key={boxColor} onClick={() => handleColorClick(boxColor)}>
+                        key={boxColor} defaultValue={"r"} onClick={() => handleColorClick(boxColor)}>
                     </button>
                 ))}
             </div>
@@ -64,7 +67,7 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
                         ...buttonStyle, backgroundColor: ribbonColorName[index],
                         border: selectedRibbonColor === ribbonColor ? '5px solid black' : null
                     }}
-                        key={ribbonColor} onClick={() => handleNumberClick(ribbonColor)}>
+                        key={ribbonColor} defaultValue={1} onClick={() => handleNumberClick(ribbonColor)}>
                     </button>
                 ))}
             </div>

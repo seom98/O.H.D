@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import GiftBoxIcon from "./GiftBoxIcon";
 import ProgressBar from './ProgressBar';
+import toast from 'react-hot-toast';
+
+const notify = () => toast.success('링크가 클립보드에 복사되었습니다.');
+
 
 export default function RoomPage() {
     const [giftList, setGiftList] = useState([]);
@@ -10,8 +14,10 @@ export default function RoomPage() {
     const uuidId = useParams().uuidId;
     const url1 = `http://localhost:3000/writers/${uuidId}`;
     const url2 = `http://localhost:3000/rooms/${uuidId}`;
-    const diffInMs = new Date(room?.dday) - new Date(room?.createdAt);
-    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    const diffInMs = new Date(room?.dday) - new Date();
+    const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
+    
+
 
     useEffect(() => {
         (async () => {
@@ -73,44 +79,60 @@ export default function RoomPage() {
             ) :
                 <div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <div style={{ fontSize: "24px" }}>D-Day</div>
+                        <div style={{ fontSize: "24px" }}>D+{-diffInDays}</div>
                     </div>
                     <div className='container'>
                         <div className='div1'>
-                            {giftList.filter((value, index) => index % 3 === 1).map(({ giftId, boxColor, ribbonColor }) => (
+                            {giftList.filter((value, index) => index % 3 === 1).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message }) => (
                                 <GiftBoxIcon
                                     key={giftId}
                                     giftId={giftId}
                                     boxColor={boxColor}
                                     ribbonColor={ribbonColor}
-                                    width="100px" height="100px"
-                                    onClick />
+                                    width="100%"
+                                    gto={gto}
+                                    gfrom={gfrom}
+                                    message={message}
+                                />
                             ))}
                         </div>
                         <div className='div2'>
-                            {giftList.filter((value, index) => index % 3 === 0).map(({ giftId, boxColor, ribbonColor }) => (
+                            {giftList.filter((value, index) => index % 3 === 0).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message }) => (
                                 <GiftBoxIcon
                                     key={giftId}
                                     giftId={giftId}
                                     boxColor={boxColor}
                                     ribbonColor={ribbonColor}
-                                    width="100px" height="100px"
-                                    onClick />
+                                    width="100%"
+                                    gto={gto}
+                                    gfrom={gfrom}
+                                    message={message}
+                                />
                             ))}
                         </div>
                         <div className='div3'>
-                            {giftList.filter((value, index) => index % 3 === 2).map(({ giftId, boxColor, ribbonColor }) => (
+                            {giftList.filter((value, index) => index % 3 === 2).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message }) => (
                                 <GiftBoxIcon
                                     key={giftId}
                                     giftId={giftId}
                                     boxColor={boxColor}
                                     ribbonColor={ribbonColor}
-                                    width="100px" height="100px"
-                                    onClick />
+                                    width="100%"
+                                    gto={gto}
+                                    gfrom={gfrom}
+                                    message={message}
+                                />
                             ))}
                         </div>
                     </div>
+                    <CopyToClipboard text={url1}>
+                        <button className="button1" onClick={notify}>내방 초대하기</button>
+                    </CopyToClipboard>
+                    <CopyToClipboard text={url2}>
+                        <button className="button1" onClick={notify}>내방 기억하기</button>
+                    </CopyToClipboard>
                 </div>}
         </>
     );
 }
+

@@ -1,5 +1,6 @@
 import Router from "./Router";
 import React from "react";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   // const [message, setMessage] = useState([]);
@@ -21,9 +22,21 @@ function App() {
         </ul>
       </header> */}
       
+        <Toaster />
       <Router />
     </div>
   );
 }
 
 export default App;
+
+
+// const notify = () => toast('Here is your toast.');
+
+// const App = () => {
+//   return (
+//     <div>
+//       <button onClick={notify}>Make me a toast</button>
+//     </div>
+//   );
+// };

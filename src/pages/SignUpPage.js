@@ -30,12 +30,12 @@ const SignUp = () => {
 
   return (
     <>
-      <h1>회원가입페이지</h1>
+      <h1 style={{marginTop: "100px"}}>방 생성하기</h1>
       <div>
-        <h2>Welcome</h2>
+        <h5 style={{marginBottom: "100px"}}>방이름과 d-day를 설정해주세요</h5>
         <form onSubmit={handleSubmit}>
 
-          <label htmlFor="title">내 방 이름:</label><br />
+          <label htmlFor="title" style={{marginRight: "200px"}}>내 방 이름</label><br />
           <input
             className="input"
             type="text"
@@ -44,8 +44,8 @@ const SignUp = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           /><br />
-
-          <label htmlFor="dDay">D-day:</label><br />
+          <div style={{marginTop: "50px"}}></div>
+          <label htmlFor="dDay" style={{marginRight: "218px"}}>D-day</label><br />
           <input
             className="input"
             type="date"

@@ -38,7 +38,7 @@
     box-sizing: border-box;
     margin: 10px;
     width: 300px;
-    height: 40px;
+    height: 50px;
 
     background: #ffffff;
     border: 2px solid #7a2c2c;
@@ -91,6 +91,6 @@
 
 .bbb {
     position: fixed;
-    bottom: 30px;
+    bottom: 60px;
     transform: translateX(-50%);
 }
