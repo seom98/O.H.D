@@ -26,7 +26,7 @@ export default function WritersPage() {
 
     return (
         <>
-            <h1 className='roomName'>{room?.title}의 방</h1>
+            <h1 className='roomName'><span style={{color: "#734146"}}>{room?.title}</span> 의 방</h1>
             {diffInDays > 0 ? (
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div style={{ fontSize: "34px" }}>D-{diffInDays}</div>

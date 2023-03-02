@@ -18,10 +18,12 @@ export default function RoomPage() {
     const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
     
     const notify1 = () =>  {
-        toast.success('초대링크가 클립보드에 복사되었습니다.');
+        toast('링크를 친구들에게 전달해서 선물을 받으세요!',{
+            icon: '😁'
+        });
     }
     const notify2 = () =>  {
-        toast.success('기억링크가 클립보드에 복사되었습니다.');
+        toast.success('링크를 잃어버리지 않도록 따로 저장해두세요!');
     }
 
 
@@ -36,7 +38,7 @@ export default function RoomPage() {
 
     return (
         <>
-            <h1 className="roomName">{room?.title}의 방</h1>
+            <h1 className="roomName"><span style={{color: "#734146"}}>{room?.title}</span> 의 방</h1>
             {diffInDays > 0 ? (
                 <div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -74,7 +76,6 @@ export default function RoomPage() {
                             ))}
                         </div>
                     </div>
-
                     <CopyToClipboard text={url1}>
                         <button className="button1" onClick={() => notify1()} >내방 초대하기</button>
                     </CopyToClipboard>
@@ -88,10 +89,11 @@ export default function RoomPage() {
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <div style={{ fontSize: "34px" }}>D+{-diffInDays}</div>
                     </div>
-                    <div className='container'>
+                    <div className='container1'>
                         <div className='div1'>
-                            {giftList.filter((value, index) => index % 3 === 1).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message }) => (
+                            {giftList.filter((value, index) => index % 3 === 1).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message, checked}) => (
                                 <GiftBoxIcon
+                                    title={gfrom}
                                     key={giftId}
                                     giftId={giftId}
                                     boxColor={boxColor}
@@ -99,12 +101,13 @@ export default function RoomPage() {
                                     gto={gto}
                                     gfrom={gfrom}
                                     message={message}
+                                    checked={checked}
                                     width="100%"
                                 />
                             ))}
                         </div>
                         <div className='div2'>
-                            {giftList.filter((value, index) => index % 3 === 0).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message }) => (
+                            {giftList.filter((value, index) => index % 3 === 0).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message, checked}) => (
                                 <GiftBoxIcon
                                     key={giftId}
                                     giftId={giftId}
@@ -113,12 +116,13 @@ export default function RoomPage() {
                                     gto={gto}
                                     gfrom={gfrom}
                                     message={message}
+                                    checked={checked}
                                     width="100%"
                                 />
                             ))}
                         </div>
                         <div className='div3'>
-                            {giftList.filter((value, index) => index % 3 === 2).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message }) => (
+                            {giftList.filter((value, index) => index % 3 === 2).map(({ giftId, boxColor, ribbonColor, gto, gfrom, message, checked}) => (
                                 <GiftBoxIcon
                                     key={giftId}
                                     giftId={giftId}
@@ -127,11 +131,13 @@ export default function RoomPage() {
                                     gto={gto}
                                     gfrom={gfrom}
                                     message={message}
+                                    checked={checked}
                                     width="100%"
                                 />
                             ))}
                         </div>
                     </div>
+                    <p style={{color: "white", fontSize: "20px"}}>선물을 클릭해서 열어보세요!!</p>
                     <CopyToClipboard text={url1}>
                         <button className="button1" onClick={() => notify1()}>내방 초대하기</button>
                     </CopyToClipboard>

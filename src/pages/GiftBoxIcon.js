@@ -27,12 +27,13 @@ const GIFT_IMAGES = {
     w: [GiftBox_4_1, GiftBox_4_2, GiftBox_4_3, GiftBox_4_4],
 };
 
-const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, gto, gfrom, message }) => {
+const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, gto, gfrom, message, checked }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const src = GIFT_IMAGES[boxColor][ribbonColor - 1];
     const alt = `${boxColor} ${ribbonColor}`;
-    const style = { width, height };
+    const [style, setStyle] = useState({ width, height, opacity: checked == 1 ? "50%" : "100%" });
+
 
     const [room, setRoom] = useState();
     const uuidId = useParams().uuidId;
@@ -50,6 +51,7 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, g
     const updateCompleted = async () => {
         await axios.patch(`http://localhost:8080/api/checked/${giftId}`);
         setModalIsOpen(true);
+        setStyle({ ...style, opacity: 0.5 });
     };
 
     return (
@@ -60,7 +62,7 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, g
                 </div>
             ) :
                 <div>
-                    <img src={src} alt={alt} style={style} onClick={updateCompleted} />
+                    <img src={src} alt={alt} style={style} onClick={updateCompleted} title={`${gfrom}이 준 선물`}/>
                     {modalIsOpen && (
                         <div className="popup">
                             <div className="popup-content">
@@ -69,8 +71,10 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, g
                                     style={{
                                         overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
                                         content: {
-                                            width: '250px',
-                                            height: '250px',
+                                            backgroundColor: "#ffec8f",
+                                            borderRadius: "30px",
+                                            width: '350px',
+                                            height: '410px',
                                             margin: "auto",
                                             position: "fixed",
                                             top: "0",
@@ -79,8 +83,6 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, g
                                             right: "0"
                                         }
                                     }}>
-                                    <button onClick={() => setModalIsOpen(false)}>X</button>
-                                    <h2>Gift Box Checked!</h2>
                                     <MessagePopup gto={gto} gfrom={gfrom} message={message} />
                                 </Modal>
 

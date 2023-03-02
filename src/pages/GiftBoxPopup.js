@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GiftBoxChooser from "./GiftBoxChooser";
 import { useParams } from 'react-router-dom';
 import "./Pages.css";
+import toast,{Toaster} from 'react-hot-toast';
 
 const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
   const [step, setStep] = useState(1);
@@ -13,8 +14,13 @@ const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
 
   const uuidId = useParams().uuidId;
 
+
   const handleNext = () => {
     if (gfrom == "" || gto == "" || message == "") {
+      toast('선물상자 내용을 작성해주세요.',
+      {
+        icon: '🎁'
+      });
       return
     }
     setStep(2);
@@ -69,6 +75,7 @@ const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
           /><br />
 
           <button className="button1" onClick={handleNext}>다음</button>
+          <Toaster/>
         </div>
       )}
 

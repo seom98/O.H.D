@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: 'KyoboHand';
+}
 .roomName {
     font-size: 40px;
 }
@@ -118,7 +127,7 @@
 .toInput {
     box-sizing: border-box;
     margin: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width: 300px;
     height: 50px;
 
@@ -132,10 +141,10 @@
 .messageInput {
     box-sizing: border-box;
     margin: 10px;
-    margin-bottom: 30px;
-    padding-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
     width: 300px;
-    height: 130px;
+    height: 220px;
 
     background: #ffffff;
     border: 2px solid #422629;
@@ -147,7 +156,7 @@
 .fromInput {
     box-sizing: border-box;
     margin: 10px;
-    margin-bottom: 90px;
+    margin-bottom: 20px;
     width: 300px;
     height: 50px;
 
@@ -172,13 +181,31 @@
     height: 400px;
     overflow-y: scroll;
 
+    box-shadow: inset 0px 0px 10px 4px rgb(117, 81, 81);
+}
+.container1 {
+    margin: 35px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-color: #f0cfd2;
+    border: 2px solid #422629;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    overflow-y: scroll;
+
+    box-shadow: inset 0px 0px 10px 4px rgb(117, 81, 81);
 }
 
+.container::-webkit-scrollbar {
+    display: none;
+}
 .div1,
 .div3 {
     justify-content: center;
     align-items: center;
-    padding-top: 160px;
+    padding-top: 80px;
     width: 30%;
 
 }
@@ -186,7 +213,7 @@
 .div2 {
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 20px;
     padding-bottom: 150px;
     width: 30%;
 }
