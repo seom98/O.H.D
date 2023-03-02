@@ -62,7 +62,7 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, g
                 </div>
             ) :
                 <div>
-                    <img src={src} alt={alt} style={style} onClick={updateCompleted} title={`${gfrom}이 준 선물`}/>
+                    <img src={src} alt={alt} style={style} onClick={updateCompleted} title={`${gfrom}이(가) 준 선물`}/>
                     {modalIsOpen && (
                         <div className="popup">
                             <div className="popup-content">
@@ -71,7 +71,8 @@ const GiftBoxIcon = ({ giftId, boxColor = 'r', ribbonColor = 1, width, height, g
                                     style={{
                                         overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
                                         content: {
-                                            backgroundColor: "#ffec8f",
+                                            backgroundColor: "#e9a4fa",
+                                            border: "0px",
                                             borderRadius: "30px",
                                             width: '350px',
                                             height: '410px',

@@ -46,33 +46,37 @@ const GiftBoxPopup = ({ setGiftList, setModalIsOpen }) => {
   return (
     <div>
       {step === 1 && (
-        <div style={{marginTop: "30px"}}>
-          <label htmlFor="To">To:</label><br />
+        <div>
+          <p style={{marginBottom: "50px"}}>선물상자에 담을 메시지를 작성해주세요</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+          <label htmlFor="To" style={{margin: "10px", marginRight: "34px", marginTop:"15px", fontSize: "25px"}}>To.</label><br />
           <input
             className="toInput"
             type="text"
-            placeholder="받는사람"
+            placeholder="받는 사람"
             value={gto}
             onChange={(e) => setTo(e.target.value)}
-          /><br />
+          />
+          </div><br />
 
-          <label htmlFor="Message">메시지:</label><br />
           <textarea
             className="messageInput"
             type="text"
-            placeholder="생성자에게 메시지를 적어주세요"
+            placeholder="메시지를 적어주세요"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           /><br />
 
-          <label htmlFor="From">From:</label><br />
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "25px"}}>
+          <label htmlFor="From" style={{margin: "10px", marginRight: "11px", marginTop:"15px", fontSize: "25px"}}>From.</label><br />
           <input
             className="fromInput"
             type="text"
-            placeholder="주는사람"
+            placeholder="주는 사람"
             value={gfrom}
             onChange={(e) => setFrom(e.target.value)}
-          /><br />
+          />
+          </div><br />
 
           <button className="button1" onClick={handleNext}>다음</button>
           <Toaster/>

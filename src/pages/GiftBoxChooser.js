@@ -34,6 +34,7 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
 
     return (
         <div>
+            <p>선물의 상자색과 리본색을 정해주세요</p>
 
             {selectedBoxColor && selectedRibbonColor ? (
                 <div><GiftBoxIcon
@@ -49,7 +50,7 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
                 </div>
             }
 
-            <div>boxColor</div>
+            <div>상자색상</div>
             <div>
                 {boxColors.map((boxColor, index) => (
                     <button style={{
@@ -60,8 +61,8 @@ const GiftBoxChooser = ({ setRibbonColor, setBoxColor }) => {
                     </button>
                 ))}
             </div>
-            <div style={{ marginTop: "50px" }}>ribbonColor</div>
-            <div style={{ marginBottom: "100px" }}>
+            <div style={{ marginTop: "50px" }}>리본색상</div>
+            <div style={{ marginBottom: "53px" }}>
                 {ribbonColors.map((ribbonColor, index) => (
                     <button style={{
                         ...buttonStyle, backgroundColor: ribbonColorName[index],

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Modal from 'react-modal';
 import WritersGiftBoxIcon from './WritersGiftBox';
 import GiftBoxPopup from './GiftBoxPopup';
@@ -79,7 +79,8 @@ export default function WritersPage() {
 
 
 
-            <button className='giftbutton' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
+            <Link to="/"><button className='button1'>내 방 만들러 가기</button></Link>
+            <button className='button1' onClick={() => setModalIsOpen(true)}>선물주러 가기</button>
             <Modal appElement={document.getElementById('root')}
                 isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={{

@@ -88,6 +88,9 @@ export default function RoomPage() {
                 <div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <div style={{ fontSize: "34px" }}>D+{-diffInDays}</div>
+                        <ProgressBar
+                            value={1}
+                            maxValue={1} />
                     </div>
                     <div className='container1'>
                         <div className='div1'>
