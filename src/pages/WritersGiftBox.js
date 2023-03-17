@@ -24,7 +24,7 @@ const GIFT_IMAGES = {
 
 export default function WritersGiftBox({ giftId, boxColor = 'r', ribbonColor = 1, width, height }) {
     const src = GIFT_IMAGES[boxColor][ribbonColor - 1];
-    const alt = `${boxColor} ${ribbonColor}`;
+    const alt = `${boxColor}컬러에 ${ribbonColor}번째 선물상자`;
     const style = { width, height };
     return <img src={src} alt={alt} style={style}/>;
 };

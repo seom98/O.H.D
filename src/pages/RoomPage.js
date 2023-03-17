@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import toast,{Toaster} from 'react-hot-toast';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import GiftBoxIcon from "./GiftBoxIcon";
 import ProgressBar from './ProgressBar';
-import toast,{Toaster} from 'react-hot-toast';
-
-
 
 
 export default function RoomPage() {
@@ -16,6 +14,7 @@ export default function RoomPage() {
     const url2 = `http://localhost:3000/rooms/${uuidId}`;
     const diffInMs = new Date(room?.dday) - new Date();
     const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24));
+    
     
     const notify1 = () =>  {
         toast('링크를 친구들에게 전달해서 선물을 받으세요!',{
